@@ -74,16 +74,18 @@ class TableController extends GetxController{
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    searchList = dataRowList;
-    foundResult = searchList;
+    searchList.addAllIf(true, dataRowList);
   }
 
   void runFilter({value}) {
+    var result = [];
     if(value.toString().isEmpty){
-      searchList = dataRowList;
+      result = dataRowList;
     }else{
-       searchList.value = dataRowList.where((element) =>
+       result = dataRowList.where((element) =>
            element["prId"].toString().toLowerCase().contains(value.toString().toLowerCase())).toList();
     }
+
+    searchList.value = result;
   }
 }

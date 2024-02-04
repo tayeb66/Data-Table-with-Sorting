@@ -66,10 +66,10 @@ class HomePage extends GetView<TableController> {
                             controller.sortColumnIndex.value = columnIndex;
                             if(columnIndex == 0){
                               if(ascending){
-                                controller.foundResult.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["prId"].toString().compareTo(a["prId"].toString()));
                               }else{
-                                controller.foundResult.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["prId"].toString().compareTo(b["prId"].toString()));
                               }
                             }else if(columnIndex == 1){
@@ -135,17 +135,17 @@ class HomePage extends GetView<TableController> {
                         ),
                     ],
                     rows: [
-                      for(int index = 0; index < controller.foundResult.length; index++)
+                      for(int index = 0; index < controller.searchList.length; index++)
                         DataRow(
                             cells: [
-                              DataCell(Obx(() => Text(controller.foundResult[index]["prId"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["createdAt"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["priority"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["requestedByName"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["requestType"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["itemName"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["statusName"].toString()))),
-                              DataCell(Obx(() => Text(controller.dataRowList[index]["poNumber"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["prId"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["createdAt"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["priority"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["requestedByName"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["requestType"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["itemName"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["statusName"].toString()))),
+                              DataCell(Obx(() => Text(controller.searchList[index]["poNumber"].toString()))),
                             ]
                         ),
                     ]
