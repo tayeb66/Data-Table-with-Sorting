@@ -67,6 +67,17 @@ class TableController extends GetxController{
       "statusName": "User Entry",
       "poNumber": "003"
     },
+    {
+      "prId": 64460,
+      "partsRequestID": 1044,
+      "createdAt": "02/01/2024 01:38:32 AM",
+      "priority": "Ground",
+      "requestedByName": "F10solutions, F10solutions",
+      "requestType": "First",
+      "itemName": "Item1",
+      "statusName": "User Entry",
+      "poNumber": "001"
+    },
   ].obs;
   var searchList = [].obs;
   var foundResult = [].obs;

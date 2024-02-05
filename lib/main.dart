@@ -40,7 +40,7 @@ class HomePage extends GetView<TableController> {
             SizedBox(
               height: 40.0,
               child: TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Search",
                   suffixIcon: Icon(Icons.search)
                 ),
@@ -66,72 +66,76 @@ class HomePage extends GetView<TableController> {
                             controller.sortColumnIndex.value = columnIndex;
                             if(columnIndex == 0){
                               if(ascending){
+                                print("ascending11 : ${controller.isAscending}");
                                 controller.searchList.sort((a,b) =>
                                     b["prId"].toString().compareTo(a["prId"].toString()));
                               }else{
+                                print("ascending11 : ${controller.isAscending}");
                                 controller.searchList.sort((a,b) =>
                                     a["prId"].toString().compareTo(b["prId"].toString()));
                               }
                             }else if(columnIndex == 1){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                print("ascending11 : ${controller.isAscending}");
+                                controller.searchList.sort((a,b) =>
                                     a["createdAt"].toString().compareTo(b["createdAt"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                print("ascending11 : ${controller.isAscending}");
+                                controller.searchList.sort((a,b) =>
                                     b["createdAt"].toString().compareTo(a["createdAt"].toString()));
                               }
                             }else if(columnIndex == 2){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["priority"].toString().compareTo(b["priority"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["priority"].toString().compareTo(a["priority"].toString()));
                               }
                             }else if(columnIndex == 3){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["requestedByName"].toString().compareTo(b["requestedByName"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["requestedByName"].toString().compareTo(a["requestedByName"].toString()));
                               }
                             }else if(columnIndex == 4){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["requestType"].toString().compareTo(b["requestType"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["requestType"].toString().compareTo(a["requestType"].toString()));
                               }
                             }else if(columnIndex == 5){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["itemName"].toString().compareTo(b["itemName"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["itemName"].toString().compareTo(a["itemName"].toString()));
                               }
                             }else if(columnIndex == 6){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["statusName"].toString().compareTo(b["statusName"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["statusName"].toString().compareTo(a["statusName"].toString()));
                               }
                             }else if(columnIndex == 7){
                               if(ascending){
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     a["poNumber"].toString().compareTo(b["poNumber"].toString()));
                               }else{
-                                controller.dataRowList.sort((a,b) =>
+                                controller.searchList.sort((a,b) =>
                                     b["poNumber"].toString().compareTo(a["poNumber"].toString()));
                               }
                             }
                           },
 
-                          label: Obx(() => Text(controller.dataColumnList[index]["headerName"].toString())),
+                          label: Row(children: [Obx(() => Text(controller.dataColumnList[index]["headerName"].toString())),const Icon(Icons.arrow_upward,size: 16.0,)],),
                         ),
                     ],
                     rows: [
